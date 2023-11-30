@@ -10,12 +10,24 @@
 	<title>Dettaglio pizza</title>
 </head>
 
-<body>
-	
+<body th:object="${pizza}">
+
 	<div class="container">
-		
-		<h3 th:text="${pizza}"></h3>
-		
+
+		<h3 class="my-4 text-center"> [[*{name}]]</h3>
+
+		<div class="d-flex">
+
+			<img th:src="*{urlImage}" alt="pizza" class="img-fluid" style="width: 200px;">
+
+			<div class="ms-4">
+
+				<h6>Ingredienti:</h6>
+				<p> [[*{description}]]</p>
+			</div>
+		</div>
+
+
 	</div>
 
 </body>
