@@ -13,6 +13,9 @@ public class Pizza {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
+	@Column
+	private String name;
+	
 	@Column(columnDefinition = "TEXT")
 	private String description;
 	
@@ -23,8 +26,9 @@ public class Pizza {
 	private float price;
 	
 	public Pizza() { } 
-	public Pizza(String description, String urlImage, float price) {
+	public Pizza(String name, String description, String urlImage, float price) {
 		
+	setName(name);
 	setDescription(description);
 	setUrlImage(urlImage);
 	setPrice(price);
@@ -32,6 +36,12 @@ public class Pizza {
 	}
 	
 	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	public int getId() {
 		return id;
 	}
