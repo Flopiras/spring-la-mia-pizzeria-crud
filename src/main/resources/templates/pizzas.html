@@ -16,6 +16,21 @@
 
 		<h3>Le nostre pizze:</h3>
 
+		<!--form-->
+		<form class="d-flex justify-content-center flex-wrap">
+
+			<div class="mb-3 d-flex">
+				
+				<input th:value="${q}" type="text" class="form-control" id="query" name="q" placeholder="Cerca...">
+			</div>
+
+			<!--submit button-->
+			<div>
+				<button class="btn btn-primary ms-4">Cerca</button>
+			</div>
+		</form>
+
+
 		<div th:if="${!pizzas.isEmpty()}">
 			<ul>
 				<li th:each="pizza : ${pizzas}" th:object="${pizza}">
@@ -29,7 +44,7 @@
 				</li>
 			</ul>
 		</div>
-		
+
 		<div th:unless="${!pizzas.isEmpty()}">
 			<h2>Spiacenti, non ci sono pizze disponibili</h2>
 		</div>
