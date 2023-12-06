@@ -75,8 +75,7 @@ public class MainController {
 			pizzaService.save(pizza);
 		} catch (Exception e) {
 
-			bindingResult
-					.addError(new FieldError("name", "description", "urlImage"));
+			
 			model.addAttribute("pizza", pizza);
 			return "pizza-form";
 		}

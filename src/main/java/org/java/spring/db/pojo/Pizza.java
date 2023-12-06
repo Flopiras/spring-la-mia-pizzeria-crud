@@ -19,7 +19,7 @@ public class Pizza {
 	@Column(columnDefinition = "TEXT")
 	private String description;
 	
-	@Column
+	@Column(columnDefinition = "TEXT")
 	private String urlImage;
 	
 	@Column
