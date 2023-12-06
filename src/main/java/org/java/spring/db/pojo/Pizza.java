@@ -1,5 +1,7 @@
 package org.java.spring.db.pojo;
 
+import org.hibernate.validator.constraints.Length;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,9 +16,11 @@ public class Pizza {
 	private int id;
 	
 	@Column
+	@Length(min = 3, max = 60, message = "Il nome della pizza deve essere dai 3 ai 60 caratteri")
 	private String name;
 	
 	@Column(columnDefinition = "TEXT")
+	@Length(min = 3, message = "La descrizione deve essere di almeno 3 caratteri")
 	private String description;
 	
 	@Column(columnDefinition = "TEXT")

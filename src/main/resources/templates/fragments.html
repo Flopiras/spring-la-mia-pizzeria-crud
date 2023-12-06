@@ -17,7 +17,7 @@
 	<div th:fragment="errorDiv(field)"
 		th:if="${#fields.hasErrors(field)}">
 		<ul>
-		   <li 
+		   <li class="text-danger"
 		   		th:each="err : ${#fields.errors(field)}">
 		   		[[${err}]]	
 		   	</li>
