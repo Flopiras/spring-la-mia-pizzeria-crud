@@ -3,6 +3,7 @@ package org.java.spring.controller;
 import java.util.List;
 
 import org.java.spring.db.pojo.Pizza;
+import org.java.spring.db.repo.PizzaRepository;
 import org.java.spring.db.serv.PizzaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -63,7 +64,7 @@ public class MainController {
 		return savePizza(model, pizza, bindingResult);
 	}
 	
-	@GetMapping("pizzas/edit/{id}")
+	@GetMapping("/pizzas/edit/{id}")
 	public String editPizza(Model model, @PathVariable int id) {
 		
 		Pizza pizza = pizzaService.findById(id);
@@ -73,10 +74,22 @@ public class MainController {
 		return "pizza-form";
 	}
 
-	@PostMapping("pizzas/edit/{id}")
+	@PostMapping("/pizzas/edit/{id}")
 	public String updatePizza(Model model, @Valid @ModelAttribute Pizza pizza, BindingResult bindingResult) {
 		
 		return savePizza(model, pizza, bindingResult);
+	}
+	
+	@PostMapping("/pizzas/delete/{id}")
+	public String deletePizza(@PathVariable int id) {
+		
+		Pizza pizza = pizzaService.findById(id);
+		
+		pizzaService.delete(pizza);
+		
+		System.out.println(pizza);
+		
+		return "redirect:/";
 	}
 	
 	private String savePizza (Model model, @Valid @ModelAttribute Pizza pizza, BindingResult bindingResult) {
@@ -103,6 +116,6 @@ public class MainController {
 			return "pizza-form";
 		}
 		
-		return "redirect:";
+		return "redirect:/";
 	}
 }

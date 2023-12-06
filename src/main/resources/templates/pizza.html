@@ -15,12 +15,19 @@
 	<div class="container">
 
 		<h3 class="my-4 text-center"> [[*{name}]]</h3>
-		
-<!--edit button-->
-<div class="d-flex justify-content-center my-4">
-	<a th:href="@{/pizzas/edit/{id} (id=*{id})}" class="btn btn-warning text-white">Modifica</a>
-	
-</div>
+
+		<!--buttons-->
+		<div class="d-flex justify-content-around align-items-center my-4">
+
+			<!--edit-->
+			<a th:href="@{/pizzas/edit/{id} (id=*{id})}" class="btn btn-warning text-white">Modifica</a>
+			
+<!--delete-->
+<form th:action="@{/pizzas/delete/{id} (id=*{id})}" method="POST">
+	<button class="btn btn-danger">Elimina</button>
+</form>
+
+		</div>
 
 		<div class="d-flex">
 
