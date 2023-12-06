@@ -14,21 +14,28 @@
 
 		<h1 class="text-center my-4">Pizzeria Lato Oscuro</h1>
 
+		<div class="d-flex justify-content-around align-items-center">
+
+			<!--search form-->
+			<form class="d-flex justify-content-center flex-wrap my-4">
+
+				<div class="mb-3 d-flex">
+
+					<input th:value="${q}" type="text" class="form-control" id="query" name="q" placeholder="Cerca...">
+				</div>
+
+				<!--submit button-->
+				<div>
+					<button class="btn btn-primary ms-4">Cerca</button>
+				</div>
+			</form>
+
+			<!--create button-->
+			<a href="/pizzas/create" class="btn btn-info text-white">Aggiungi pizza</a>
+		</div>
+
 		<h3>Le nostre pizze:</h3>
 
-		<!--form-->
-		<form class="d-flex justify-content-center flex-wrap">
-
-			<div class="mb-3 d-flex">
-				
-				<input th:value="${q}" type="text" class="form-control" id="query" name="q" placeholder="Cerca...">
-			</div>
-
-			<!--submit button-->
-			<div>
-				<button class="btn btn-primary ms-4">Cerca</button>
-			</div>
-		</form>
 
 
 		<div th:if="${!pizzas.isEmpty()}">
